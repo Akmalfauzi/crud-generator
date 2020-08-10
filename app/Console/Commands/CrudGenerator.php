@@ -13,7 +13,7 @@ class CrudGenerator extends Command
      *
      * @var string
      */
-    protected $signature = 'crud:generator {Nama Crud : Class (singular) for example User}';
+    protected $signature = 'crud:generator {name : Class (singular) for example User}';
 
     /**
      * The console command description.
@@ -97,6 +97,8 @@ class CrudGenerator extends Command
         $this->request($name);
     
         File::append(base_path('routes/api.php'), 'Route::resource(\'' . Str::plural(strtolower($name)) . "', '{$name}Controller');");
+
+        $this->info("Berhasil!");
     }
 
 }
